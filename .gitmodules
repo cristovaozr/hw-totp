@@ -1,0 +1,6 @@
+[submodule "firmware/external/wolfssl"]
+	path = firmware/external/wolfssl
+	url = https://github.com/wolfSSL/wolfssl.git
+[submodule "firmware/external/STM32CubeF1"]
+	path = firmware/external/STM32CubeF1
+	url = https://github.com/STMicroelectronics/STM32CubeF1.git
