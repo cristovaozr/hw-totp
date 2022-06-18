@@ -14,3 +14,7 @@ This project uses git submodules, therefore they must be initiated:
 > `git submodule update --init`
 
 After this, just hit `make` and it should be OK!
+
+# TODO List
+
+* [ ] ...
