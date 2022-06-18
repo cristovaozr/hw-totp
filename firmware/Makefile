@@ -25,10 +25,16 @@ BIN = $(CP) -O binary -S
 # Source files
 # C sources
 C_SOURCES += \
-	src/main.c
+	src/main.c \
+	src/hw_init.c
 
 C_SOURCES += \
-	external/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c
+	external/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c \
+	external/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c \
+	external/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c \
+	external/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c \
+	external/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c
+
 
 # AS sources
 ASM_SOURCES += \
@@ -42,7 +48,7 @@ AS_DEFS +=
 
 # AS includes
 AS_INCLUDES += \
-	-Iinclude \
+	-I. \
 	-Iexternal/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc \
 	-Iexternal/STM32CubeF1/Drivers/CMSIS/Include \
 	-Iexternal/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Include
@@ -67,7 +73,7 @@ C_DEFS += \
 
 # C includes
 C_INCLUDES += \
-	-Iinclude \
+	-I. \
 	-Iexternal/STM32CubeF1/Drivers/STM32F1xx_HAL_Driver/Inc \
 	-Iexternal/STM32CubeF1/Drivers/CMSIS/Include \
 	-Iexternal/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Include
