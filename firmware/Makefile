@@ -12,7 +12,7 @@ TARGET = hw-totp-fw
 DEBUG = 1
 
 # Build path
-BUILD_DIR = /tmp/build/
+BUILD_DIR = /tmp/build
 
 # Binaries
 PREFIX = arm-none-eabi-
@@ -26,7 +26,10 @@ BIN = $(CP) -O binary -S
 # C sources
 C_SOURCES += \
 	src/main.c \
-	src/hw_init.c
+	src/hw_init.c \
+	src/mutex.c \
+	src/queue.c \
+	src/usart2.c
 
 C_SOURCES += \
 	external/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c \

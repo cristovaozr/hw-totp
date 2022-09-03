@@ -1,3 +1,8 @@
+/*
+ * Copyright 2022 Cristóvão Zuppardo Rufino <cristovaozr+hwtotp@gmail.com>
+ * This firmware is free-software. See LICENSE file attached.
+ */
+
 #include "stm32f103xb.h"
 #include "stm32f1xx_ll_system.h"
 #include "stm32f1xx_ll_bus.h"
@@ -36,7 +41,7 @@ static void SystemClock_Config(void)
     // FIXME: Delaying (or hanging) due to LSE not ready
     // It is unkown why the LSE is not stabilizing therefore the loop that waits for stablization
     // is disabled for now.
-    while (LL_RCC_LSE_IsReady() != 1);
+    // while (LL_RCC_LSE_IsReady() != 1);
 
     LL_RCC_SetRTCClockSource(LL_RCC_RTC_CLKSOURCE_LSE);
     LL_RCC_EnableRTC();
