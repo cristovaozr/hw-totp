@@ -29,7 +29,8 @@ C_SOURCES += \
 	src/hw_init.c \
 	src/mutex.c \
 	src/queue.c \
-	src/usart2.c
+	src/usart2.c \
+	src/systick.c
 
 C_SOURCES += \
 	external/STM32CubeF1/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c \

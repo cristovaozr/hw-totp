@@ -22,4 +22,8 @@
         __ISB();        \
     } while(0)
 
+#define DISABLE_IRQ()   __disable_irq();
+
+#define ENABLE_IRQ()    __enable_irq();
+
 #endif // INCLUDE_STM32_CRITICAL_H_

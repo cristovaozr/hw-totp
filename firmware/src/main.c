@@ -7,6 +7,7 @@
 
 #include "include/usart2.h"
 #include "include/errors.h"
+#include "include/systick.h"
 
 int main(void)
 {
@@ -14,11 +15,13 @@ int main(void)
 
     // USART loopback
     while(1) {
+        struct systick time;
         uint8_t byte[32];
         uint32_t size;
-        int32_t ret = usart2_available(&size);
-        if (ret == W_QUEUE_IS_LOCKED) continue;
+        usart2_available(&size);
         if (size > 0) {
+            systick_get(&time);
+
             usart2_read(&byte[0], &size);
             usart2_write(&byte[0], &size);
         }

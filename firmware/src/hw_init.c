@@ -11,6 +11,7 @@
 #include "stm32f1xx_ll_pwr.h"
 #include "stm32f1xx_ll_utils.h"
 #include "stm32f1xx_ll_usart.h"
+#include "stm32f1xx_ll_cortex.h"
 
 #include "include/errors.h"
 
@@ -118,6 +119,11 @@ int32_t hw_init(void)
     SystemClock_Config();
 
     // TODO: Initialize all other hardware necessary to run this thing
+    LL_Init1msTick(SystemCoreClock);
+    NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 5, 0));
+    NVIC_EnableIRQ(SysTick_IRQn);
+    LL_SYSTICK_EnableIT();
+
     ret = stm32_usart2_init();
 
     return ret;
